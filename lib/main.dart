@@ -7,7 +7,7 @@ void main() {
 
   runApp(
     MaterialApp(
-      home: HomeScreen2(),
+      home: HomeScreen3(),
     ),
   );
 }
