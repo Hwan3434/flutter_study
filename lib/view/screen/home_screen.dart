@@ -63,65 +63,74 @@ class HomeScreen2 extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.only(right: 8, left: 8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
           children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  child: _myWidget(context,
-                      btnTitle: 'Image Viewer Sample',
-                      wordToStyle: 'e viewer',
-                      wordStyle: TextStyle(
-                        color: Colors.red,
-                        backgroundColor: Colors.amberAccent,
-                      )),
-                  onPressed: () {
-                    showGeneralDialog(
-                      barrierLabel: "Label",
-                      barrierDismissible: false,
-                      barrierColor: Colors.black.withOpacity(0.5),
-                      context: context,
-                      pageBuilder: (context, anim1, anim2) {
-                        return SecondRoute();
-                      },
-                      transitionBuilder: (context, anim1, anim2, child) {
-                        return SlideTransition(
-                          position:
-                              Tween(begin: Offset(0, 1), end: Offset(0, 0))
-                                  .animate(anim1),
-                          child: child,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      child: _myWidget(context,
+                          btnTitle: 'Image Viewer Sample',
+                          wordToStyle: 'e viewer',
+                          wordStyle: TextStyle(
+                            color: Colors.red,
+                            backgroundColor: Colors.amberAccent,
+                          )),
+                      onPressed: () {
+                        showGeneralDialog(
+                          barrierLabel: "Label",
+                          barrierDismissible: false,
+                          barrierColor: Colors.black.withOpacity(0.5),
+                          context: context,
+                          pageBuilder: (context, anim1, anim2) {
+                            return SecondRoute();
+                          },
+                          transitionBuilder: (context, anim1, anim2, child) {
+                            return SlideTransition(
+                              position:
+                                  Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                                      .animate(anim1),
+                              child: child,
+                            );
+                          },
                         );
                       },
-                    );
-                  },
+                    ),
+                  ),
                 ),
-              ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      child: _myWidget(context,
+                          btnTitle: 'power start LockScreen',
+                          wordToStyle: 'lockscreen',
+                          wordStyle: TextStyle(
+                            color: Colors.green,
+                            backgroundColor: Colors.white,
+                          )),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext buidlerContext) {
+                              return LockRoute();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  child: _myWidget(context,
-                      btnTitle: 'power start LockScreen',
-                      wordToStyle: 'lockscreen',
-                      wordStyle: TextStyle(
-                        color: Colors.green,
-                        backgroundColor: Colors.white,
-                      )),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext buidlerContext) {
-                          return LockRoute();
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ),
-            )
+            SelectableText('selsection text masking',
+                showCursor: false, cursorColor: Colors.yellow,
+            onSelectionChanged: (TextSelection selection, SelectionChangedCause? cause) {
+              print('ㅋㅋㅋ : ${selection.toString()}');
+            },)
           ],
         ),
       ),
