@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -130,7 +131,47 @@ class HomeScreen2 extends StatelessWidget {
                 showCursor: false, cursorColor: Colors.yellow,
             onSelectionChanged: (TextSelection selection, SelectionChangedCause? cause) {
               print('ㅋㅋㅋ : ${selection.toString()}');
-            },)
+            },
+            ),
+            ElevatedButton(
+              onPressed: () {
+
+                showCupertinoModalPopup(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoActionSheet(
+                      title: const Text('Choose Options'),
+                      message: const Text('Your options are '),
+                      actions: <Widget>[
+                        CupertinoActionSheetAction(
+                          child: const Text('One'),
+                          onPressed: () {
+                            print('쿠퍼티노 팝업 one');
+                            Navigator.pop(context, 'One');
+
+                          },
+                        ),
+                        CupertinoActionSheetAction(
+                          child: const Text('Two'),
+                          onPressed: () {
+                            print('쿠퍼티노 팝업 Tow');
+                            Navigator.pop(context, 'Two');
+
+                          },
+                        )
+                      ],
+                      cancelButton: CupertinoActionSheetAction(
+                        child: const Text('Cancel'),
+                        isDefaultAction: true,
+                        onPressed: () {
+                          print('쿠퍼티노 팝업');
+                          Navigator.pop(context, 'Cancel');
+                        },
+                      )),
+                );
+
+              },
+              child: Text('ㅎㅎㅇ'),
+            )
           ],
         ),
       ),
