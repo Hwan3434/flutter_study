@@ -55,7 +55,7 @@ class LockRoute extends StatelessWidget {
             ]),
             ElevatedButton(onPressed: () {
               startBioPass();
-            }, child: Text('생체인증 시작!!'))
+            }, child: Text('생체인증 시작!!오호?'))
           ]),
         ),
       ),
