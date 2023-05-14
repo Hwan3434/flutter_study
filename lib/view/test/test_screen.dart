@@ -5,6 +5,6 @@ class testScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('수정11');
+    return Text('feature/2 - 2');
   }
 }
